@@ -1,22 +1,18 @@
-import logo from './logo.svg';
+import React, { useRef } from 'react';
 import './App.css';
 
 function App() {
+  const inputRef = useRef(null);
+
+  const focusInput = () => {
+    inputRef.current.focus();
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <input ref={inputRef} type="text" placeholder="Tapez quelque chose..." />
+        <button onClick={focusInput}>Mettre le focus sur le champ</button>
       </header>
     </div>
   );
